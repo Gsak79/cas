@@ -8,7 +8,11 @@ export function getEntryById(id) {
     return Entry.findById(id);
 }
 
-export function addEntry(entry) {
+export function addEntry(entry, images) {
+    entry.images = images.map(image => {
+        return {url: image.path, name: image.originalname}
+    })
+
     return Entry.create(entry)
 }
 

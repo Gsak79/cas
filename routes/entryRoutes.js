@@ -1,14 +1,18 @@
 import express from "express";
 import { getAllEntries, addEntry, getEntryById, deleteEntry, editEntry } from "../controllers/entryController.js";
+import multer from "multer";
+import storage from "../cloudinary.js";
 const entryRoutes = express()
+
+const upload = multer({ storage: storage });
 
 entryRoutes.get('/entries', async (req, res) => {
     const entries = await getAllEntries()
     res.send(entries)
 })
 
-entryRoutes.post('/entry', async (req, res) => {
-    const entry = await addEntry(req.body)
+entryRoutes.post('/entry', upload.any(), async (req, res) => {
+    const entry = await addEntry(req.body, req.files)
     res.send(entry)
 })
 
