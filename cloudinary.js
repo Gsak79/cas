@@ -12,4 +12,8 @@ const storage = new CloudinaryStorage({
     cloudinary: cloudinary,
 });
 
+export async function deleteImage(imageId) {
+    await cloudinary.uploader.destroy(imageId)
+}
+
 export default storage;

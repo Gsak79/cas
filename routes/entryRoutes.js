@@ -43,8 +43,8 @@ entryRoutes.delete('/entry/:id', async (req, res) => {
     res.send(entry)
 })
 
-entryRoutes.put('/entry/:id', async (req, res) => {
-    const entry = await editEntry(req.params.id, req.body)
+entryRoutes.put('/entry/:id', upload.any(), async (req, res) => {
+    const entry = await editEntry(req.params.id, req.body, req.files)
     res.send(entry)
 })
 

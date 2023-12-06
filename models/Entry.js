@@ -24,6 +24,7 @@ const entrySchema = new mongoose.Schema({
     images: [
         {
             _id: false,
+            publicId: String,
             url: String,
             name: String
         }
