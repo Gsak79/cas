@@ -9,11 +9,11 @@ export function getEntryById(id) {
 }
 
 export function getAllPersonalEntries() {
-    return Entry.find({experience: "Experiencia Personal"});
+    return Entry.find({experience: "Experiencia personal"});
 }
 
 export function getAllGroupEntries() {
-    return Entry.find({experience: "Experiencia Grupal"});
+    return Entry.find({experience: "Experiencia grupal"});
 }
 
 export function addEntry(entry, images) {

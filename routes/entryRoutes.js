@@ -1,5 +1,12 @@
 import express from "express";
-import { getAllEntries, addEntry, getEntryById, deleteEntry, editEntry } from "../controllers/entryController.js";
+import {
+    getAllEntries,
+    addEntry,
+    getEntryById,
+    deleteEntry,
+    editEntry,
+    getAllPersonalEntries, getAllGroupEntries
+} from "../controllers/entryController.js";
 import multer from "multer";
 import storage from "../cloudinary.js";
 const entryRoutes = express()
