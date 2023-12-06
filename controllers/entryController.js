@@ -8,6 +8,14 @@ export function getEntryById(id) {
     return Entry.findById(id);
 }
 
+export function getAllPersonalEntries() {
+    return Entry.find({experience: "Experiencia Personal"});
+}
+
+export function getAllGroupEntries() {
+    return Entry.find({experience: "Experiencia Grupal"});
+}
+
 export function addEntry(entry, images) {
     entry.images = images.map(image => {
         return {url: image.path, name: image.originalname}

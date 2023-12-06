@@ -11,6 +11,16 @@ entryRoutes.get('/entries', async (req, res) => {
     res.send(entries)
 })
 
+entryRoutes.get('/entries/personal', async (req, res) => {
+    const entries = await getAllPersonalEntries()
+    res.send(entries)
+})
+
+entryRoutes.get('/entries/group', async (req, res) => {
+    const entries = await getAllGroupEntries()
+    res.send(entries)
+})
+
 entryRoutes.post('/entry', upload.any(), async (req, res) => {
     const entry = await addEntry(req.body, req.files)
     res.send(entry)
